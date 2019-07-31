@@ -23,6 +23,10 @@
     "@types/react-dom": "^16.8.5",
     "copy-webpack-plugin": "^5.0.3",
     "copyfiles": "^2.1.1",
+    "css-loader": "^3.1.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "typescript": "^3.5.3",
     "webpack": "4.2.0",
     "webpack-cli": "^3.3.6"
