@@ -7,6 +7,6 @@
         "noImplicitAny": false,
         "jsx": "react",
         "sourceMap": true,
-        "strictNullChecks": true,
+        "strictNullChecks": true
     }
 }
