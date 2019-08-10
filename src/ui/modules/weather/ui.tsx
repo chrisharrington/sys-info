@@ -23,7 +23,6 @@ export class Weather extends React.Component<{}, { info: IWeatherInfo }> {
 
     render() {
         const info = this.state.info;
-        console.log(info);
         return info ? <div className='ui-module weather'>
             {info.current && <WeatherEntry day={info.current} />}
             <div className='separator'></div>

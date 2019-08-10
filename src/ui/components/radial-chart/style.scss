@@ -4,12 +4,16 @@
     svg {
         .unfilled-path {
             fill: none;
-            stroke: #222;
+            stroke: #666;
+        }
+
+        .border {
+            fill: none;
+            stroke: #888;
         }
 
         .filled-path {
             fill: none;
-            stroke: orange;
             transition: stroke-dashoffset 400ms;
         }
     }
