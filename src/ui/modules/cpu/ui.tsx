@@ -1,20 +1,17 @@
 import * as React from 'react';
+import numeral from 'numeral';
 
-import { CpuModule, CpuInfo } from './sys';
-import { RadialChart } from '../base/ui';
+import { RadialChart } from '../../components/radial-chart';
 
-interface ICpuState {
-    info: CpuInfo;
-}
+import { CpuModule, ICpuInfo } from './sys';
 
-export default class Cpu extends React.Component<{}, ICpuState> {
+import './style.scss';
+
+export class CpuLoad extends React.Component<{}, { load: number }> {
     sys: CpuModule;
 
     state = {
-        info: {
-            usage: 0,
-            temperature: 0
-        }
+        load: 0
     }
 
     constructor(props) {
@@ -24,16 +21,44 @@ export default class Cpu extends React.Component<{}, ICpuState> {
     }
 
     componentDidMount() {
-        this.sys.on((info: CpuInfo) => this.setState({ info }))
+        this.sys.on((info: ICpuInfo) => this.setState({ load: info.load }))
     }
 
     render() {
-        return <div className='ui-module cpu'>
+        return <div className='ui-module cpu-load'>
             <RadialChart
                 label='CPU'
-                value={this.state.info.usage*500}
+                value={this.state.load}
+                format={(value: number) => numeral(value).format('00.00') + '%'}
             />
         </div>;
     }
 }
 
+export class CpuTemperature extends React.Component<{}, { temperature: number }> {
+    sys: CpuModule;
+
+    state = {
+        temperature: 0
+    }
+
+    constructor(props) {
+        super(props);
+
+        this.sys = new CpuModule();
+    }
+
+    componentDidMount() {
+        this.sys.on((info: ICpuInfo) => this.setState({ temperature: info.temperature }))
+    }
+
+    render() {
+        return <div className='ui-module cpu-temperature'>
+            <RadialChart
+                label='CPU°'
+                value={this.state.temperature}
+                format={(value: number) => numeral(value).format('00.00') + '%'}
+            />
+        </div>;
+    }
+}

@@ -1,0 +1,31 @@
+.ui-module.weather {
+    color: white;
+
+    .weather-day {
+        float: left;
+        margin-left: 12px;
+
+        i, span {
+            text-align: center;
+            width: 40px;
+        }
+
+        i {
+            font-size: 32px;
+        }
+
+        span {
+            margin-top: 15px;
+            display: inline-block;
+            font-size: 18px;
+        }
+    }
+
+    .separator {
+        float: left;
+        height: 69px;
+        margin-left: 12px;
+        background-color: #333;
+        width: 1px;
+    }
+}

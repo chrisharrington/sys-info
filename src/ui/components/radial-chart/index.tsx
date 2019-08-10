@@ -1,11 +1,12 @@
 import * as React from 'react';
 
-require('kute.js/kute-svg');
+import './style.scss';
 
 interface IRadialChartProps {
     label: string;
     value: number;
     size?: number;
+    format?: (value: number) => string;
 }
 
 interface IRadialChartState {
@@ -16,52 +17,56 @@ interface IRadialChartState {
 export abstract class RadialChart extends React.Component<IRadialChartProps, IRadialChartState> {
     controlPath: any;
     percentPath: any;
+    length: number;
 
     state = {
-        strokeDasharray: 0,
-        strokeDashoffset: 0
+        strokeDasharray: 566,
+        strokeDashoffset: -566
+    }
+
+    constructor(props) {
+        super(props);
+
+        this.length = 0;
     }
 
     render() {
-        const size = this.props.size || 200,
+        const size = this.props.size || 226,
             strokeWidth = 20;
 
         return <div className='radial-chart'>
-            <svg width={size} height={size} style={{ backgroundColor: 'white' }}>
+            <svg width={size} height={size}>
                 <path
-                    fill='none'
-                    stroke='#DDD'
+                    className='unfilled-path'
                     strokeWidth={strokeWidth} d={this.describeArc(size/2, size/2, size/2 - strokeWidth/2, 0, 359.9999)}
                     ref={c => this.controlPath = c}
                 />
 
                 <path
-                    fill='none'
-                    stroke='orange'
+                    className='filled-path'
                     strokeWidth={strokeWidth} d={this.describeArc(size/2, size/2, size/2 - strokeWidth/2, 0, 359.9999)}
                     ref={c => this.percentPath = c}
                     strokeDasharray={this.state.strokeDasharray}
                     strokeDashoffset={this.state.strokeDashoffset}
-                    style={{ transition: 'stroke-dashoffset 400ms'}}
                 />
             </svg>
+
+            <div className='radial-chart-text'>
+                <div className='radial-chart-title'>{this.props.label}</div>
+                <div className='radial-chart-value'>{this.props.format ? this.props.format(this.props.value) : this.props.value}</div>
+            </div>
         </div>;
     }
 
     componentDidMount() {
-        const length = this.controlPath.getTotalLength();
-        this.setState({
-            strokeDasharray: length,
-            strokeDashoffset: length
-        });
+        this.length = this.controlPath.getTotalLength();
     }
 
     componentWillReceiveProps(props: IRadialChartProps) {
-        const value = Math.random();//this.props.value;
-
         this.setState({
-            strokeDashoffset: this.state.strokeDasharray * (1 - value) * -1
-        }, () => console.log(this.state.strokeDashoffset));
+            strokeDasharray: this.length,
+            strokeDashoffset: this.length * (1 - props.value/100) * -1,
+        });
     }
 
     private polarToCartesian(centerX: number, centerY: number, radius: number, angleInDegrees: number) {

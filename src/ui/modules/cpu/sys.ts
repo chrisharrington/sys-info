@@ -1,19 +1,22 @@
 import * as os from 'os-utils';
+import * as si from 'systeminformation';
 import BaseModule from '../base/sys';
 
-export interface CpuInfo {
-    usage: number;
+export interface ICpuInfo {
+    load: number;
     temperature: number;
 }
 
-export class CpuModule extends BaseModule<CpuInfo> {
-    async get() : Promise<CpuInfo> {
-        return new Promise<CpuInfo>(resolve => {
-            os.cpuUsage(value => {
-                resolve({
-                    usage: value
-                } as CpuInfo);
-            })
-        });
+export class CpuModule extends BaseModule<ICpuInfo> {
+    protected async get() : Promise<ICpuInfo> {
+        const [ load, temperature ] = await Promise.all([
+            si.currentLoad(),
+            si.cpuTemperature()
+        ]);
+
+        return {
+            load: load.currentload,
+            temperature: temperature.main
+        };
     }
 }

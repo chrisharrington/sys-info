@@ -1,0 +1,44 @@
+$padding: 24px;
+
+body {
+    padding: $padding;
+    font-family: 'Roboto';
+    // background: url('background.jpg') no-repeat center center fixed;
+    // background-size: cover;
+    background-color: black;
+}
+
+.ui-module {
+    position: absolute;
+    z-index: 1;
+}
+
+.cpu-load {
+    left: $padding;
+    bottom: $padding;
+}
+
+.cpu-temperature {
+    left: 274px;
+    bottom: $padding;
+}
+
+.gpu-temperature {
+    left: 524px;
+    bottom: $padding;
+}
+
+.memory {
+    left: 774px;
+    bottom: $padding;
+}
+
+.datetime {
+    top: $padding;
+    right: $padding;
+}
+
+.weather {
+    top: 137px + $padding*2;
+    right: $padding;
+}
