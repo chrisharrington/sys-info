@@ -6,6 +6,7 @@ import { GpuTemperature } from './modules/gpu/ui';
 import { Memory } from './modules/memory/ui';
 import { DateTime } from './modules/datetime/ui';
 import { Weather } from './modules/weather/ui';
+import { Calendar } from './modules/calendar/ui';
 
 import './style.scss';
 
@@ -18,6 +19,7 @@ class App extends React.Component {
             <Memory />
             <DateTime />
             <Weather />
+            <Calendar />
         </div>;
     }
 }

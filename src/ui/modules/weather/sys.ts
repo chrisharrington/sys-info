@@ -12,7 +12,7 @@ export interface IWeatherInfo {
 
 export class WeatherModule extends BaseModule<IWeatherInfo> {
     constructor() {
-        super(60*60*1000);
+        super(15*60*1000);
     }
 
     protected async get() : Promise<IWeatherInfo> {

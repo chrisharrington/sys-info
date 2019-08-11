@@ -1,6 +1,8 @@
+const path = require('path');
 const { app, BrowserWindow, ipcMain } = require('electron');
 
 require('electron-reload')(__dirname);
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 let mainWindow;
 
@@ -8,7 +10,7 @@ let createWindow = async () => {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        //frame: false,
+        frame: false,
         webPreferences: {
             nodeIntegration: true
         }

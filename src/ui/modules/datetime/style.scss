@@ -4,9 +4,13 @@
 
     .time {
         font-size: 96px;
+        line-height: 76px;
+        display: inline-block;
     }
 
     .date {
+        margin-top: 20px;
         font-size: 18px;
+        display: inline-block;
     }
 }

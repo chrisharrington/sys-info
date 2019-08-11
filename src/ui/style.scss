@@ -3,9 +3,16 @@ $padding: 24px;
 body {
     padding: $padding;
     font-family: 'Roboto';
+    color: white;
     // background: url('background.jpg') no-repeat center center fixed;
     // background-size: cover;
     background-color: black;
+    -webkit-app-region: drag;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
 }
 
 .ui-module {
@@ -36,9 +43,15 @@ body {
 .datetime {
     top: $padding;
     right: $padding;
+    -webkit-app-region: drag;
 }
 
 .weather {
-    top: 137px + $padding*2;
+    top: 114px + $padding*2;
     right: $padding;
+}
+
+.calendar {
+    top: $padding;
+    left: $padding;
 }

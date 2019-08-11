@@ -65,3 +65,6 @@ dist
 
 # Original merge files.
 *.orig
+
+# Environment variables
+.env

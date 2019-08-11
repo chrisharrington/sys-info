@@ -59,6 +59,12 @@ module.exports = {
             {
                 from: './src/ui/font',
                 to: 'font'
+            },
+            {
+                from: './src/.env'
+            },
+            {
+                from: './src/ui/modules/calendar/authorization.json'
             }
         ]),
         new MiniCssExtractPlugin({

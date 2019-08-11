@@ -30,7 +30,7 @@ export class Memory extends React.Component<{}, { info: IMemoryInfo }> {
 
         return <div className='ui-module memory'>
             <RadialChart
-                label='Mem'
+                label='RAM'
                 value={(total - free) / total * 100}
                 format={() => isNaN(free) ? '-' : `${prettyBytes(total - free)}`}
             />
