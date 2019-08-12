@@ -38,8 +38,8 @@ export class CalendarModule extends BaseModule<ICalendarInfo> {
             });
 
         return {
-            today: sorted.filter(e => moment(e.start).startOf('d').isSame(moment().add(2, 'd').startOf('d'))),
-            tomorrow: sorted.filter(e => moment(e.start).startOf('d').isSame(moment().add(3, 'd').startOf('d')))
+            today: sorted.filter(e => moment(e.start).startOf('d').isSame(moment().startOf('d'))),
+            tomorrow: sorted.filter(e => moment(e.start).startOf('d').isSame(moment().add(1, 'd').startOf('d')))
         };
     }
 

@@ -1,40 +1,38 @@
 .calendar {
     .calendar-day {
         float: left;
-        width: 336px;
+        width: 800px;
 
         .calendar-tile-wrapper {
             .calendar-tile {
                 float: left;
                 width: 100%;
-                border-left: solid 12px;
-                padding: 12px;
-                margin-bottom: 15px;
-                background-color: #555;
+                margin-bottom: 10px;
                 box-sizing: border-box;
 
-                &.calendar-0 {
-                    border-left-color: #33b84c;
-                }
-
-                &.calendar-1 {
-                    border-left-color: #337eb8;
-                }
-
-                h3 {
-                    display: block;
-                    width: 100%;
+                >* {
+                    margin: 0 12px 0 0;
+                    margin-right: 12px;
                     font-size: 22px;
-                    margin: 0 0 8px 0;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    overflow: hidden;
+                    display: inline-block;
+                    line-height: 24px;
+                    height: 24px;
+                    vertical-align: middle;
                 }
 
-                span {
-                    display: block;
-                    width: 100%;
-                    font-size: 16px;
+                .calendar-tile-type {
+                    border-radius: 50%;
+                    width: 22px;
+                    height: 22px;
+                    border: solid 2px white;
+
+                    &.calendar-0 {
+                        background-color: #47bf3b;
+                    }
+    
+                    &.calendar-1 {
+                        background-color: #409ce3;
+                    }
                 }
             }
         }

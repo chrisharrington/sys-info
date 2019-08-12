@@ -25,11 +25,7 @@ export class Calendar extends React.Component<{}, { info: ICalendarInfo }> {
         const info = this.state.info;
         return <div className='ui-module calendar'>
             {info.today && <CalendarDay
-                events={info.today.slice(0, 3)}
-            />}
-            <div className='separator'></div>
-            {info.tomorrow && <CalendarDay
-                events={info.tomorrow.slice(0, 3)}
+                events={info.today.slice(0, 6)}
             />}
         </div>;
     }
@@ -49,9 +45,10 @@ class CalendarDay extends React.Component<{ events: CalendarEvent[] }> {
 class CalendarTile extends React.Component<{ event: CalendarEvent }> {
     render() {
         const event = this.props.event;
-        return <div className={`calendar-tile calendar-${event.calendar.type}`}>
-            <h3>{event.name}</h3>
+        return <div className='calendar-tile'>
+            <div className={`calendar-tile-type calendar-${event.calendar.type}`}></div>
             <span>{`${event.start.format('HH:mm')} - ${event.end.format('HH:mm')}`}</span>
+            <h3>{event.name}</h3>
         </div>;
     }
 }
