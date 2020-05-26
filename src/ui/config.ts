@@ -1,3 +1,4 @@
 export default class Config {
-    static WeatherApiUrl: string = 'https://api.darksky.net/forecast/1c2922ca359c87d7d09ec51b61c2fa5b/51.174950,%20-114.128861?units=si'
+    static WeatherForecastApiUrl: string = 'https://weather.api.here.com/weather/1.0/report.json?app_id={WEATHER_APP_ID}&app_code={WEATHER_APP_CODE}&product=forecast_7days_simple&latitude=51.174937&longitude=-114.128854'
+    static WeatherCurrentApiUrl: string = 'https://weather.api.here.com/weather/1.0/report.json?app_id={WEATHER_APP_ID}&app_code={WEATHER_APP_CODE}&product=observation&latitude=51.174937&longitude=-114.128854'
 }

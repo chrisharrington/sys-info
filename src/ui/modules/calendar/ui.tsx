@@ -1,4 +1,5 @@
 import * as React from 'react';
+import moment from 'moment';
 
 import { CalendarModule, ICalendarInfo, CalendarEvent } from './sys';
 
@@ -18,7 +19,11 @@ export class Calendar extends React.Component<{}, { info: ICalendarInfo }> {
     }
 
     componentDidMount() {
-        this.sys.on((info: ICalendarInfo) => this.setState({ info }))
+        this.sys.on((info: ICalendarInfo) => this.setState({ info: this.filterEvents(info) }))
+
+        setInterval(() => {
+            this.setState({ info: this.filterEvents(this.state.info) })
+        }, 10000);
     }
 
     render() {
@@ -28,6 +33,11 @@ export class Calendar extends React.Component<{}, { info: ICalendarInfo }> {
                 events={info.today.slice(0, 6)}
             />}
         </div>;
+    }
+
+    private filterEvents(info: ICalendarInfo) : ICalendarInfo {
+        info.today = info.today.filter(e => moment(e.start).add(5, 'm').isAfter(moment()));
+        return info;
     }
 }
 

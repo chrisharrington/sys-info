@@ -52,7 +52,7 @@ export abstract class RadialChart extends React.Component<IRadialChartProps, IRa
                 
                 <path
                     className='filled-path'
-                    stroke='url(#gradient)'
+                    //stroke='url(#gradient)'
                     strokeWidth={strokeWidth}
                     d={this.describeArc(position, position, (size/2 - strokeWidth/2)-1, 0, 359.9999)}
                     ref={c => this.percentPath = c}

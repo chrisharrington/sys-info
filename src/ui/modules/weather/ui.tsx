@@ -33,7 +33,7 @@ export class Weather extends React.Component<{}, { info: IWeatherInfo }> {
 
 const WeatherEntry = ({ day } : { day: WeatherDay }) => (
     <div className='weather-day'>
-        <i className={`wi ${day.type.icon}`}></i>
+        <i className={`wi ${day.type.icon}`} />
         <br />
         <span className='temperature'>{Math.round(day.temperature)}°</span>
     </div>

@@ -6,33 +6,36 @@
         .calendar-tile-wrapper {
             .calendar-tile {
                 float: left;
-                width: 100%;
+                width: 500px;
                 margin-bottom: 10px;
                 box-sizing: border-box;
+                background-color: black;
 
                 >* {
                     margin: 0 12px 0 0;
-                    margin-right: 12px;
                     font-size: 22px;
                     display: inline-block;
-                    line-height: 24px;
-                    height: 24px;
+                    line-height: 28px;
+                    height: 28px;
                     vertical-align: middle;
+                }
+                
+                span {
+                    width: 127px;
+                }
+
+                h3 {
+                    width: 297px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                 }
 
                 .calendar-tile-type {
+                    background-color: orange;
+                    width: 20px;
+                    height: 20px;
                     border-radius: 50%;
-                    width: 22px;
-                    height: 22px;
-                    border: solid 2px white;
-
-                    &.calendar-0 {
-                        background-color: #47bf3b;
-                    }
-    
-                    &.calendar-1 {
-                        background-color: #409ce3;
-                    }
                 }
             }
         }

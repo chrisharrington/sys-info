@@ -7,6 +7,7 @@ import { Memory } from './modules/memory/ui';
 import { DateTime } from './modules/datetime/ui';
 import { Weather } from './modules/weather/ui';
 import { Calendar } from './modules/calendar/ui';
+import { Finances } from './modules/finances/ui';
 
 import './style.scss';
 
@@ -20,6 +21,7 @@ class App extends React.Component {
             <DateTime />
             <Weather />
             <Calendar />
+            {/* <Finances /> */}
         </div>;
     }
 }

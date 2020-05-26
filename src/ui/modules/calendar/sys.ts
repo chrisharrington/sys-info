@@ -38,7 +38,7 @@ export class CalendarModule extends BaseModule<ICalendarInfo> {
             });
 
         return {
-            today: sorted.filter(e => moment(e.start).startOf('d').isSame(moment().startOf('d'))),
+            today: sorted.filter(e => moment(e.start).startOf('d').isSame(moment().add(0, 'd').startOf('d'))),
             tomorrow: sorted.filter(e => moment(e.start).startOf('d').isSame(moment().add(1, 'd').startOf('d')))
         };
     }
@@ -64,7 +64,7 @@ export class CalendarModule extends BaseModule<ICalendarInfo> {
             this.buildApi().events.list({
                 calendarId: calendar.id,
                 timeMin: (new Date()).toISOString(),
-                maxResults: 10,
+                maxResults: 100,
                 singleEvents: true,
                 orderBy: 'startTime',
             }, (err, res) => {

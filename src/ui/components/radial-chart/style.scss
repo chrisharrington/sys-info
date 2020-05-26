@@ -15,6 +15,7 @@
         .filled-path {
             fill: none;
             transition: stroke-dashoffset 400ms;
+            stroke: orange;
         }
     }
 
@@ -27,12 +28,12 @@
         transform: translate3d(-50%, -50%, 0);
 
         .radial-chart-title {
-            font-size: 32px;
-            font-family: 'Roboto Condensed';
+            font-size: 38px;
+            font-weight: bold;
         }
 
         .radial-chart-value {
-            font-size: 16px;
+            font-size: 24px;
         }
     }
 }

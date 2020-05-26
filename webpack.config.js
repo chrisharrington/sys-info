@@ -11,7 +11,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'src.bundle.js'
     },
     module: {
         rules: [
@@ -40,6 +40,18 @@ module.exports = {
                 ]
             }
         ]
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    name: 'vendor',
+                    test: /[\\/]node_modules[\\/]/,
+                    chunks: 'initial',
+                    enforce: true
+                }
+            }
+        }
     },
     devtool: 'inline-source-map',
     plugins: [
